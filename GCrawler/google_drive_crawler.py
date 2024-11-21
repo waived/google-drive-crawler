@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import time
 import string
 import random
 import requests
 from urllib.parse import urlparse
+
+_found = []
 
 def check(url, wait, proxy_ip, proxy_port):
     ok = False
@@ -79,7 +82,7 @@ def main():
         
         _time = int(input('Timeout sec. (1=default): '))
         
-        input('\r\nReady? Strike <ENTER> toc crawl and <CTRL+C> to abort...\r\n')
+        input('\r\nReady? Strike <ENTER> to crawl and <CTRL+C> to abort...\r\n')
         
     except KeyboardInterrupt:
         sys.exit()
@@ -105,10 +108,13 @@ def main():
             if valid:
                 print('----> FOUND @ ' + url)
                 
+            
+            time.sleep(1)
+            
     except KeyboardInterrupt:
         pass
-    except Exception as e:
-        print(e)
+    except:
+        pass
         
     sys.exit('\r\nDone!\r\n')
   
