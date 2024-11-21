@@ -6,8 +6,6 @@ import random
 import requests
 from urllib.parse import urlparse
 
-_found = []
-
 def check(url, wait, proxy_ip, proxy_port):
     ok = False
     
