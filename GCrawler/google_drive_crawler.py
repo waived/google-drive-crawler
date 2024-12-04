@@ -16,7 +16,8 @@ def check(url, wait, proxy_ip, proxy_port):
     }
     
     try:
-        response = requests.get(url, proxies=proxies, timeout=wait)
+        # use HTTP-HEAD vs GET to reduce network load
+        response = requests.head(url, proxies=proxies, timeout=wait)
         
         if response.status_code == 200:
             return True
